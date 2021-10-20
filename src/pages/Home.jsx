@@ -1,11 +1,16 @@
+import { useLocation } from 'react-router-dom'
 import ShowsContainer from "../components/ShowsContainer";
 import '../../dist/Home.css'
 
-export default function Home({query}){
+export default function Home(){
+    const location = useLocation();
+    const url = new URL(location.search, window.location.href);
+    const query = url.searchParams.get('q');
+
+
     return (
         <div className="layout">
             <main>
-                
                 <div className="content">
                     <div className="shows-list">
                         <ShowsContainer query={query} />

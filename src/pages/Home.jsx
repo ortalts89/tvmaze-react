@@ -1,45 +1,11 @@
-import { useState } from 'react'
-import SearchForm from '../components/SearchForm'
 import ShowsContainer from "../components/ShowsContainer";
 import '../../dist/Home.css'
 
-export default function Home(){
-    const [query, setQuery] = useState("")
-    
+export default function Home({query}){
     return (
         <div className="layout">
-            <header>
-                <div className="top-header">
-                <div className="main-logo"><img src="https://static.tvmaze.com/images/tvm-header-logo.png" alt="TV Maze" /></div>
-                <SearchForm onSearch={setQuery} />
-                <div className="auth-links">
-                    <a href="">Login</a>
-                    <a href="">Register</a>
-                </div>
-                </div>
-                <nav>
-                <ul>
-                    <li><a href="">Shows</a></li>
-                    <li><a href="">Peaple</a></li>
-                    <li><a href="">Network</a></li>
-                    <li><a href="">Web Channels</a></li>
-                    <li><a href="">Articles</a></li>
-                    <li><a href="">Schedule</a></li>
-                    <li><a href="">Calender</a></li>
-                    <li><a href="">Countdown</a></li>
-                    <li><a href="">Forums</a></li>
-                </ul>
-                </nav>
-            </header>
             <main>
-                <div className="breadcrumb">
-                <a href="">HOME</a>
-                <span> / </span>
-                <span>SHOWS</span>
-                </div>
-                <div className="ads">
-                    ads
-                </div>
+                
                 <div className="content">
                     <div className="shows-list">
                         <ShowsContainer query={query} />

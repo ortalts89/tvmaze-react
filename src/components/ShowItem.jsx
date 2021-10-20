@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom'
 import '../../dist/ShowItem.css'
 
-export default function ShowItem({item,}){
+export default function ShowItem({item}){
     const imgSrc = useMemo(() => {
         return item.image? (<img src={item.image.medium}/>) : null;
     }, [item.image])

@@ -1,14 +1,11 @@
 import { getShowInfo } from "../services/api-services";
-import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 
 
 export default function Show(){
     const [showInfo, setShowInfo] = useState([]);
-
-    const location = useLocation();
-    const url = new URL(location.search, window.location.href);
-    const id = url.searchParams.get("id");
+    const { id } = useParams();
 
     useEffect(async () => {
        setShowInfo(await getShowInfo(id))

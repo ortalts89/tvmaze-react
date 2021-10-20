@@ -1,14 +1,8 @@
 import ShowsList from "./ShowsList";
-import { getShows } from "../services/api-services";
-import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux'
 
-export default function ShowsContainer({query}){
-    
-    const [shows, setShows] = useState([]);
-    
-    useEffect(async() => {
-        setShows(await getShows(query || "Loki"));
-    }, [query]);
+export default function ShowsContainer(){
+    const shows = useSelector((state) => state.shows)
 
     return (
         <div>

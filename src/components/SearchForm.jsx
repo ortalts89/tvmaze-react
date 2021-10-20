@@ -1,12 +1,17 @@
 import '../../dist/SearchForm.css'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { fetchShows } from '../store/shows';
 
 export default function SearchForm(){
     const history = useHistory();
+    const dispatch = useDispatch();
+
     function onSubmit(event){
         event.preventDefault();
         const formData = new FormData(event.target);
         const query = formData.get('query');
+        dispatch(fetchShows(query));
         query !== '' ? history.push(`/?q=${query}`) : history.push("/")
     }
    

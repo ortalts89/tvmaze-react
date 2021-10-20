@@ -8,7 +8,7 @@ export default function ShowItem({item}){
     }, [item.image])
 
     return (
-        <Link to={`/show/?id=${item.id}`}>
+        <Link to={`/show/${item.id}`}>
              <div className="show-item">
                 <h3>{item.name}</h3>
                 {imgSrc}

@@ -7,21 +7,19 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import { useState } from 'react'
 
 function App() {
-  const [query, setQuery] = useState("")
 
   return (
     <Router>
     <div>
-      <Header setQuery={setQuery}/>
+      <Header />
         <Switch>
+        <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/show/">
             <Show />
-          </Route>
-          <Route exact path="/">
-            <Home query={query} />
           </Route>
         </Switch>
     </div>

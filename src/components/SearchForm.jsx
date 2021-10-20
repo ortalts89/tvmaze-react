@@ -1,14 +1,13 @@
 import '../../dist/SearchForm.css'
 import { useHistory } from 'react-router-dom'
 
-export default function SearchForm({onSearch}){
+export default function SearchForm(){
     const history = useHistory();
     function onSubmit(event){
         event.preventDefault();
         const formData = new FormData(event.target);
         const query = formData.get('query');
         query !== '' ? history.push(`/?q=${query}`) : history.push("/")
-        onSearch(query)
     }
    
     return (

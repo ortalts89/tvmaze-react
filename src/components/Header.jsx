@@ -3,14 +3,14 @@ import '../../dist/Header.css'
 import { Link } from 'react-router-dom'
 
 
-export default function Header({setQuery}){
+export default function Header(){
     return (
         <header>
             <div className="top-header">
             <Link to={'/'}>
                 <div className="main-logo"><img src="https://static.tvmaze.com/images/tvm-header-logo.png" alt="TV Maze" /></div>
             </Link>
-            <SearchForm onSearch={setQuery} />
+            <SearchForm />
             <div className="auth-links">
                 <a href="">Login</a>
                 <a href="">Register</a>

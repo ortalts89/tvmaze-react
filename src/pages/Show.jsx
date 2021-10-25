@@ -1,15 +1,18 @@
-import { getShowInfo } from "../services/api-services";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { fetchShowInfo } from '../store/show';
+import { useSelector } from 'react-redux'
 
 
 export default function Show(){
-    const [showInfo, setShowInfo] = useState([]);
-    const { id } = useParams();
+    const { showId } = useParams();
+    const dispatch = useDispatch()
+    const showInfo = useSelector((state) => state.showInfo)
 
-    useEffect(async () => {
-       setShowInfo(await getShowInfo(id))
-   },[id]);
+    useEffect(() => {
+       dispatch(fetchShowInfo(showId));
+   },[showId]);
 
     const imgSrc = showInfo.image ? (<img src={showInfo.image.medium}/>) : null
 

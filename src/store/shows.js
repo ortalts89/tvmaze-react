@@ -27,7 +27,7 @@ export function fetchShows(query){
             const shows = await getShows(query);
             dispatch(setShows(shows));
         } catch (error) {
-            //Handle the error
+            //Handle errors
         }
     }
 }
@@ -47,4 +47,5 @@ export function showsReducer (previousState=initialState, action){
         default: return previousState
     }
 }
+
 
